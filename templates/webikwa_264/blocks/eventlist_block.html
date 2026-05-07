@@ -1,0 +1,21 @@
+<div class="eventlist">
+  <ul>
+    {% for groupkey, groupvalue in events_grouped.items %}
+    <li>{{ groupvalue.date }}
+        <ul>
+          {% for event in groupvalue.events %}
+            <li>
+              {% if event.time %}{{ event.time }}: {% endif %}
+              {% if event.article %}
+                <a href="{{ event.article.url }}">
+                  {{ event.description }}
+                </a>
+              {% else %}
+                {{ event.description }}
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+    {% endfor %}
+  </ul>
+</div>

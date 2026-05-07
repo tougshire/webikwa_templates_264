@@ -1,0 +1,45 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailmarkdown %}
+
+{% with authors=article_page.authors.all %}
+  {% if authors %}
+    <h3>Posted by:</h3>
+    <ul>
+      {% for author in authors %}
+          <li style="display: inline">
+              {% image author.author_image fill-40x60 style="vertical-align: middle" %}
+              {{ author.name }}
+          </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+{% for article_image in article_page.article_images.all %}
+  {% if article_image.display_before_body %}
+    {% image article_image.image width-800 as article_image_image %}
+    <div class="articleimage">
+      <img src="{{ article_image_image.url }}" width="80%" alt="{{ article_image.alt_text }}">
+    </div>
+  {% endif %}
+{% endfor %}
+
+{% include_block article_page.body %}
+
+{% for article_image in article_page.article_images.all %}
+  {% if article_image.display_after_body %}
+    {% image article_image.image width-800 as article_image_image %}
+    <div class="articleimage">
+      <img src="{{ article_image_image.url }}" width="80%" alt="{{ article_image.alt_text }}">
+    </div>
+  {% endif %}
+{% endfor %}
+
+{% if article_page.tags.all %}
+  <div class="tags">
+    <h3>Tags</h3>
+    {% for tag in article_page.tags.all %}
+      <a href="{{ article_page.get_parent.url }}?tag={{ tag }}"><button type="button">{{ tag }}</button></a>
+    {% endfor %}
+  </div>
+{% endif %}

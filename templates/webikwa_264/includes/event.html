@@ -1,0 +1,15 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailmarkdown %}
+
+<h1>{{ event.summary }}</h1>
+<h2>
+{% if event.start_type == "date" %}
+	{{ event.start_d }} 
+{% else %}
+	{{ event.start_dt }}
+{% endif %}	
+</h2>
+{{ event.description|safe }}
+
+{% include_block page.body_sf %}
+

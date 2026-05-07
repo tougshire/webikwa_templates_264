@@ -1,0 +1,25 @@
+{% extends "webikwa_264/base/base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block body_class %}template-articleindexpage{% endblock %}
+
+{% block content %}
+  {% if page.show_pagetitle %}<h1 class="pagetitle">{{ page.title }}</h1>{% endif %}
+  <div class="intro">{{ page.intro|richtext }}</div>
+
+    {% for zone in zones %}
+      {% if zone.placements %}
+      <div class="pagezone_wrapper zone_{{ forloop.counter0 }}">
+        {% if zone.title %}<h2 class="page_zone_title">{{ zone.title }}</h2>{% endif %}
+        <div class="pagezone">
+          {% for placement in zone.placements %}
+              {% with article_page=placement.sidebar_article %}
+              {% include "webikwa_264/includes/article_sidebarentry.html" %}
+              {% endwith %}
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endblock %}

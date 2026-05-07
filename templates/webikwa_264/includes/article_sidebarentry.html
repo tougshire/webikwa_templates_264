@@ -1,0 +1,9 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailmarkdown %}
+
+<div class="sidebararticle article">
+  <h2>{{ page.title }}</h2>
+  <div class="body">
+  {% include_block page.body %}
+  </div>
+</div>

@@ -1,0 +1,34 @@
+{% extends "webikwa_264/base/base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailmarkdown %}
+
+{% block body_class %}template-articlepage{% endblock %}
+
+{% block content %}
+0000000000000000000000000000000000000000000000000000
+	{% with page=page.target_page.specific %}
+
+		{% if event %}
+
+			{% include "webikwa_264/includes/event.html" %}
+		
+		{% else %}
+			<h1>Events</h1>
+			{% for event in events %}
+				<h2>{{ event.summary }}</h2>
+				<h3>
+				{% if event.start_type == "date" %}
+					{{ event.start_d }} 
+				{% else %}
+					{{ event.start_dt }}
+				{% endif %}	
+				</h3>
+				{{ event.description|safe }}
+
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+{% endblock %}
+
+

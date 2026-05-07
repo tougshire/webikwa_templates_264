@@ -1,0 +1,92 @@
+{% load wagtailcore_tags %}
+    {% if calendar_refs|length > 1 %}
+      {% if page.context.show_hide_calendars %}
+        <div><a href="#" id="a_showhideshowhide">show/hide calendars</a></div>
+        <ul id="ul_showhidecalendars">
+        {% for ref in calendar_refs %}
+            <li>
+                <input type="checkbox" class="slugcheck" id="inp_{{ ref.slug }}">{{ ref.title }}
+            </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endif %}
+    {% regroup events by start_d as events_bydate %}
+    {% for event_date in events_bydate %}
+    <ul class="event-date">
+        <li>
+            {{ event_date.grouper|date:datetime_formats.date }}
+            <ul class="event">
+                {% for event in event_date.list %}
+                <li data-uid="{{ event.uid }}" data-calendar="{{ event.calendar_slug }}">
+                    {% if event.start.hour %}
+                        {{ event.start|date:datetime_formats.time }}
+                    {% endif %}
+                    {% if event.link %}
+                        <a href="{{ event.link|safe }}">{{ event.summary }}</a>
+                    {% else %}
+                        {% if event.description %}
+                            <a href="{{ event.calendar }}?uid={{ event.uid }}">
+                                {{ event.summary }}
+                            </a>
+                            <div id="div_descr_{{ event.uid }}" style="display:none">
+                                {{ event.description|striptags|safe }}
+                            </div>
+                        {% else %}
+                            {{ event.summary }}
+                      {% endif %}
+                    {% endif %}
+
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+    {% endfor %}
+
+    {% if calendar_refs|length > 1%}
+        <script>
+            var calendars=[{% for ref in calendar_refs %}"{{ ref.slug }}",{% endfor %}]
+            const calendarcookies = document.cookie.split("; ")
+            for( calendar of calendars ) {
+                var calendarcookie=calendarcookies.find((c) => c.startsWith("hidecalendar_" + calendar) )
+                var chkbox = document.getElementById("inp_" + calendar)
+                chkbox.checked = typeof(calendarcookie) == "undefined" ? true: false   
+                events = document.querySelectorAll("[data-calendar='" + calendar + "']")
+                for(event of events) {
+                    event.style.display = chkbox.checked ? "" : "none"  
+                }
+
+            }
+        </script>
+        <script>
+            document.getElementById("ul_showhidecalendars").addEventListener("change", function() {
+                var calendars=[{% for ref in calendar_refs %}"{{ ref.slug }}",{% endfor %}]
+                var ypast = new Date()
+                ypast.setYear(ypast.getFullYear() - 1)
+                ypast = ypast.toUTCString()
+                var yfnow = new Date()
+                yfnow.setYear(yfnow.getFullYear() + 1)
+                yfnow = yfnow.toUTCString()
+                for( calendar of calendars ) {
+                    var chkbox = document.getElementById("inp_" + calendar)
+                    var expires = chkbox.checked ? ypast : yfnow
+                    document.cookie = "hidecalendar_" + calendar + "=hide; expires=" + expires
+                    
+                    events = document.querySelectorAll("[data-calendar='" + calendar + "']")
+                    for(event of events) {
+                        event.style.display = chkbox.checked ? "" : "none"
+                    }
+
+                }
+            })
+        </script>
+        <script>
+            document.getElementById("a_showhideshowhide").addEventListener("click", function(e) {
+                e.preventDefault()
+                ulShowHide = document.getElementById("ul_showhidecalendars")
+                ulShowHide.style.display = ulShowHide.style.display == "" ? "none" : ""
+            })
+            document.getElementById("ul_showhidecalendars").style.display = "none"
+        </script>
+    {% endif %}

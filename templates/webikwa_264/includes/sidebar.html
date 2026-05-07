@@ -1,0 +1,23 @@
+{% load wagtailcore_tags navigation_tags wagtailmarkdown %}
+{% if template_settings.mainmenu_location == side %}
+  {% include "webikwa_264/includes/mainmenu.html" %}
+{% endif %}
+{% for sidebar in sidebars %}
+{% if sidebar.location == side %}
+{% for zone in sidebar.zones %}
+      {% if zone.placements %}
+      <div class="sidebarzone_wrapper side_{{ side }} zone_{{ forloop.counter0 }}">
+        {% if zone.title %}<h2 class="sidebar_zone_title">{{ zone.title }}</h2>{% endif %}
+        <div class="pagezone">
+          {% for placement in zone.placements %}
+              {% with page=placement.article.specific %} 
+              {% include "webikwa_264/includes/article_sidebarentry.html" %}
+              {% endwith %}
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+
+  {% endif %}
+{% endfor %}

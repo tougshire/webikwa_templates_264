@@ -1,0 +1,13 @@
+{% extends "webikwa_264/base/base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailmarkdown %}
+{% block content %}
+<div class="article">
+  <h3 class="title"><a href="{% pageurl page %}">{{ page.title }}</a></h3>
+  <p class="meta">{{ page.date }}</p>
+  {% with article_page=page %}
+  {% include "webikwa_264/includes/article_body.html" %}
+  {% endwith %}
+</div>
+{% endblock %}

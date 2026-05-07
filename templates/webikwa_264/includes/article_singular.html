@@ -1,0 +1,10 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailmarkdown %}
+<div class="article">
+  <div class="articletitle"><h3><a href="{% pageurl article_page %}">{{ article_page.title }}</a></h3></div>
+
+  <div class="articlebody">
+    {% include_block article_page.body %}
+  </div>
+
+</div>

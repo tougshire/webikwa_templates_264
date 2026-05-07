@@ -1,0 +1,14 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailmarkdown %}
+
+
+<div class="placementarticle article">
+  <h3 class="title"><a href="{% pageurl article_page %}">{{ article_page.title }}</a></h3>
+  <p class="meta">{{ article_page.date }}</p>
+
+  {% if placement.show_body %}
+    {% include "webikwa_264/includes/article_body.html" %}
+  {% else %}
+    {% include "webikwa_264/includes/article_summary.html" %}
+  {% endif %}
+</div>
