@@ -177,12 +177,16 @@ footer ul li img {
     display: flex;
   }
 
-  .horizontalbar nav ul {
+  .horizontalbar ul {
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
     list-style-type: none;
     list-style-position: unset;
+  }
+
+  .horizontalbar li ul {
+    display:initial;
   }
 
   .horizontalbar li.menuitem,
@@ -287,7 +291,7 @@ footer ul li img {
   }
 
 
-  .horizontalbar nav ul {
+  .horizontalbar ul {
     margin: 0 auto;
     list-style-type: none;
     list-style-position: unset;
