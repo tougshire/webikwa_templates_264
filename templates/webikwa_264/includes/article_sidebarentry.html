@@ -2,7 +2,7 @@
 {% load wagtailmarkdown %}
 
 <div class="sidebararticle article">
-  <h2>{{ page.title }}</h2>
+  {% if page.show_title %}<h2>{{ page.title }}</h2>{% endif %}
   <div class="body">
   {% include_block page.body %}
   </div>

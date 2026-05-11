@@ -1,4 +1,4 @@
-<div class="linklist">  {{ value }}
+<div class="linklist"> 
   <ul>
     {% if links_grouped %}
       {% for groupkey, groupvalue in links_grouped.items %}
@@ -22,10 +22,10 @@
           </ul>
         {% endfor %}
     {% else %}
-      {% for link in links %}
+    {% for link in links %}
       <li class="{{ value.linkitem_class }}">
-          {% if link.article %}
-            <a href="{{ link.article.url }}">
+        {% if link.page %}
+            <a href="{{ link.page.url }}">
               {{ link.description }}
             </a>
               {% elif link.url %}
