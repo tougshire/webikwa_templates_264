@@ -23,7 +23,8 @@
   {% endif %}
 {% endfor %}
 
-{{ article_page.summary  }}
+{{ article_page.summary|markdown  }}
+<div class="readmore"><a href="{% pageurl article_page %}">continue reading</a></div>
 
 {% if article_page.tags.all %}
   <div class="tags">

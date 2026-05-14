@@ -89,15 +89,10 @@ a.brand-logo {
   max-width: 90%;
 }
 
-/*
-.article iframe {
-  width:90%;
-  height: 1200px;
-  height:100%;
-  margin: 0, auto;
+.article .readmore {
+  text-align:right;
+  margin-right:20%;
 }
-*/
-
 .responsive-object {
     position: relative;
 }
