@@ -1,19 +1,20 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 {% load wagtailmarkdown %}
 
-{% with authors=article_page.authors.all %}
-  {% if authors %}
-    <h3>Posted by:</h3>
-    <ul>
-      {% for author in authors %}
-          <li style="display: inline">
-              {% image author.author_image fill-40x60 style="vertical-align: middle" %}
-              {{ author.name }}
-          </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
+{% if show_authors or show_date %}
+  <div class="meta">
+  <p>
+    {{ page.date }} 
+    {% if show_authors %}
+      {% with authors=article_page.authors.all %}
+        {% if authors %}
+          &emspc; Posted by: {% for author in authors %}{{ author.name }}{% if forloop.last %}{% else %},{% endif %}{% endfor %}</p>
+        {% endif %}
+      {% endwith %}
+    {% endif %}
+    {% endif %}
+  </p>
+  </div>
 
 {% for article_image in article_page.article_images.all %}
   {% if article_image.display_before_body %}

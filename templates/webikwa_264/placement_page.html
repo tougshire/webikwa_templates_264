@@ -14,8 +14,8 @@
         {% if zone.title %}<h2 class="page_zone_title">{{ zone.title }}</h2>{% endif %}
         <div class="pagezone">
           {% for placement in zone.placements %}
-              {% with article_page=placement.article.specific %}
-              {% include "webikwa_264/includes/article_placemententry.html" %}
+          {% with article_page=placement.article.specific %} 
+              {% include "webikwa_264/includes/article_indexentry.html" %}
               {% endwith %}
           {% endfor %}
         </div>

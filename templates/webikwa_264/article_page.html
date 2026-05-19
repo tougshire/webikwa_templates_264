@@ -5,8 +5,7 @@
 {% block content %}
 <div class="article">
   <h3 class="title"><a href="{% pageurl page %}">{{ page.title }}</a></h3>
-  <p class="meta">{{ page.date }}</p>
-  {% with article_page=page %}
+  {% with article_page=page.specific %}
   {% include "webikwa_264/includes/article_body.html" %}
   {% endwith %}
 </div>
