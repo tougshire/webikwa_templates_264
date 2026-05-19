@@ -43,10 +43,6 @@ header {
   top: 5px;
 }
 
-h1.pagetitle {
-  margin-top: 0;
-}
-
 h1.banner {
   font-size: 3em;
   margin: 0 auto 0 auto;
@@ -61,6 +57,13 @@ a.brand-logo {
   padding-right:2em;
 }
 
+h2.pagetitle {
+  margin-top: 0;
+}
+
+h2.page_zone_title {
+  font-size:2rem;
+}
 
 .article .title {
   font-family: "Rubik", sans-serif;

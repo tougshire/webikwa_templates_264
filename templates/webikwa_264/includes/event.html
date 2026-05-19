@@ -1,7 +1,7 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 {% load wagtailmarkdown %}
 
-<h1>{{ event.summary }}</h1>
+<h2>{{ event.summary }}</h2>
 <h2>
 {% if event.start_type == "date" %}
 	{{ event.start_d }} 
