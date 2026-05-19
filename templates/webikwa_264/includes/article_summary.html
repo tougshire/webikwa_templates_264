@@ -20,7 +20,7 @@
     {% if article_image.display_with_summary %}
       {% image article_image.image width-800 as article_image_image %}
       <div class="articleimage">
-        <img src="{{ article_image_image.url }}" width="80%" alt="{{ article_image.alt_text }}">
+        <a href="{% pageurl article_page %}"><img src="{{ article_image_image.url }}" width="80%" alt="{{ article_image.alt_text }}"></a>
       </div>
     {% endif %}
   {% endfor %}
