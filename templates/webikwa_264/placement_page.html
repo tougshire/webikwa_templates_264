@@ -8,12 +8,12 @@
 {% block content %}
   {% if page.show_pagetitle %}<h2 class="pagetitle">{{ page.title }}</h2>{% endif %}
   <div class="intro">{{ page.intro|richtext }}</div>
-    {% for zone in zones %}
-      {% if zone.placements %}
+    {% for zone in page.page_zones.all %} 
+      {% if zone.article_placements %}
       <div class="pagezone_wrapper zone_{{ forloop.counter0 }}">
         {% if zone.title %}<h2 class="page_zone_title">{{ zone.title }}</h2>{% endif %}
-        <div class="pagezone">
-          {% for placement in zone.placements %}
+        <div class="pagezone" {% if zone.custom_css %} style="{{ zone.custom_css }}"{% endif %}>
+          {% for placement in zone.article_placements.all %}
           {% with article_page=placement.article.specific %} 
               {% include "webikwa_264/includes/article_indexentry.html" %}
               {% endwith %}

@@ -4,12 +4,12 @@
 {% endif %}
 {% for sidebar in sidebars %}
 {% if sidebar.location == side %}
-{% for zone in sidebar.zones %}
-      {% if zone.placements %}
+{% for zone in sidebar.sidebar_page_zones.all %}
+      {% if zone.article_sidebarplacements %}
       <div class="sidebarzone_wrapper side_{{ side }} zone_{{ forloop.counter0 }}">
         {% if zone.title %}<h2 class="sidebar_zone_title">{{ zone.title }}</h2>{% endif %}
         <div class="pagezone">
-          {% for placement in zone.placements %}
+          {% for placement in zone.article_sidebarplacements.all %}
               {% with page=placement.article.specific %} 
               {% include "webikwa_264/includes/article_sidebarentry.html" %}
               {% endwith %}

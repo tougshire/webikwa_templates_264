@@ -72,6 +72,12 @@ h2.page_zone_title {
   font-style: normal;
   font-size: 2rem;
   color: var(--theme-headline-font-color);
+  margin-bottom:.5rem;
+}
+
+.article .meta {
+  margin-bottom:.5rem;
+
 }
 
 .article .title a {
