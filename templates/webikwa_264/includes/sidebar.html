@@ -8,9 +8,9 @@
       {% if zone.article_sidebarplacements %}
       <div class="sidebarzone_wrapper side_{{ side }} zone_{{ forloop.counter0 }}">
         {% if zone.title %}<h2 class="sidebar_zone_title">{{ zone.title }}</h2>{% endif %}
-        <div class="pagezone">
+        <div class="sidebarpagezone">
           {% for placement in zone.article_sidebarplacements.all %}
-              {% with page=placement.article.specific %} 
+              {% with page=placement.article.specific containing_page=page %} 
               {% include "webikwa_264/includes/article_sidebarentry.html" %}
               {% endwith %}
           {% endfor %}
