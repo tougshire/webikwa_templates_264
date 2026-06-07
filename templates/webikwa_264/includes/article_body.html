@@ -4,7 +4,7 @@
 {% if show_authors or show_date %}
   <div class="meta">
   <p>
-    {{ page.date }} 
+    posted: {{ page.date }} 
     {% if show_authors %}
       {% with authors=article_page.authors.all %}
         {% if authors %}
