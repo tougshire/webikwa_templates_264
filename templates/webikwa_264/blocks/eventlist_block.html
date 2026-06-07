@@ -4,10 +4,10 @@
     <li>{{ groupvalue.date }}
         <ul>
           {% for event in groupvalue.events %}
-            <li>
+          <li class="event eventpri{{ event.priority }}">
               {% if event.time %}{{ event.time }}: {% endif %}
-              {% if event.article %}
-                <a href="{{ event.article.url }}">
+              {% if event.url %}
+                <a href="{{ event.url }}">
                   {{ event.description }}
                 </a>
               {% else %}
