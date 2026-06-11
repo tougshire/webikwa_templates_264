@@ -3,7 +3,7 @@
 <figure>
   {% image self.image original as img %}
   {% if self.link %}<a href="{{ self.link }}">{% endif %}
-    <img src="{{ img.url }}" style="max-width:90%;"/>
+    <img src="{{ img.url }}" alt="{{ alt_escaped }}" style="max-width:90%;"/>
     {% if self.link %}</a>{% endif %}
     {% if self.caption or self.attribution %}
     <figcaption>{{ self.caption }} - {{ self.attribution }}</figcaption>
