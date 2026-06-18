@@ -1,0 +1,63 @@
+.menu {
+  text-align:center;
+}
+
+#topbar .menu {
+  display:flex;
+  justify-content: space-around;
+
+} 
+
+.menuitem {
+  flex:1 0 auto;
+}
+
+.horizontalbar ul {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  list-style-position: unset;
+}
+
+#main {
+  display:flex;
+}
+
+.sidebar {
+  flex: 1; 
+  padding: 1em;
+}
+
+#content {
+  order:2;
+  flex: 3;
+  padding:1em;
+}
+
+#leftsidebar {
+  order: 1
+}
+
+#rightsidebar {
+  order: 3
+}
+
+.pagezone {
+  display: flex;
+}
+
+.pagezone .article {
+  flex: 1 1 0;
+  border:1px solid white;
+  padding-inline-start: .5em;
+  padding-inline-end: .5em;
+}
+
+.pagezone .article:first-child {
+  padding-inline-start: auto;
+}
+
+.pagezone .article:last-child {
+  padding-inline-end: auto;
+}

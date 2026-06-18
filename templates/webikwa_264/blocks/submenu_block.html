@@ -1,9 +1,16 @@
 {% load wagtailcore_tags %}
 {% load wagtailmarkdown %}
 {% if containing_page.submenu_items.all %}
+{% comment %}Change va6h803
 <ul>
   {% for item in containing_page.submenu_items.all %}
   <li class="submenuitem"><a href="{% pageurl item.target %}">{{ item.label }}</a></li>
+  {% endfor %}
+</ul>
+{% endcomment %}
+<div class="menudiv">
+  {% for item in containing_page.submenu_items.all %}
+  <div class="submenuitem"><a href="{% pageurl item.target %}">{{ item.label }}</a></div>
   {% endfor %}
 </ul>
 {% endif %}

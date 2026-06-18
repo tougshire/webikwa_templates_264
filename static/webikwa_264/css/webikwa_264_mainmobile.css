@@ -1,0 +1,154 @@
+.menu {
+  text-align:center;
+}
+
+.menuitem {
+  text-align:center;
+  font-size:1.2em;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.menuitem a, .menuitem a:hover {
+  text-decoration: none;
+  color: var(--theme-button-font-color  )
+}
+
+#topbar .menu {
+  border-top: 0.5em solid var(--theme-main-very-dark-color)
+} 
+
+.horizontalbar ul {
+  margin: 0 auto;
+  justify-content: space-around;
+  list-style-type: none;
+  list-style-position: unset;
+}
+
+#main {
+  border-top: 0.5em solid var(--theme-main-very-dark-color)
+}
+
+.sidebar {
+  color: white;
+}
+
+.sidebar a {
+  color: white;
+}
+
+.sidebar > * {
+  background-color: var(--theme-main-dark-color);
+  border: 2px solid var(--theme-main-very-dark-color);
+  border-radius: 1em;
+  padding: 1em;
+}
+
+.sidebar ul {
+  font-weight: bold;
+}
+
+.sidebar div > ul {
+  margin-inline-start:0;
+  padding-inline-start:0;
+}
+.sidebar div > ul ul {
+  margin-inline-start:0;
+  padding-inline-start:20px;
+}
+
+.sidebar div > ul > li {
+  font-weight:bold;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.sidebar ul > li {
+  list-style-type:none;
+  margin-top:.5em;
+}
+
+#content {
+  order:1;
+  padding:1em;
+  background-color: var(--theme-main-very-light-color);
+  border-top:1em solid white;
+  
+}
+
+#leftsidebar {
+  order:2;
+}
+
+#rightsidebar {
+  order: 3
+}
+
+.article .title {
+  font-size:2em;
+  background-color: var(--theme-main-dark-color);
+  border: 1px solid black; 
+  border-radius: .5em;
+  color: white;
+  padding-top:.5ex;
+  padding-bottom:.5ex;
+  padding-inline-start:.5em;
+}
+
+.article .title > a {
+  text-decoration:none;
+}
+
+.article .title > a, .article .title > a:visited {
+  color: white;
+}
+
+
+.eventdetails {
+  background-color: black;
+  padding:.5em;
+  color: var(--theme-main-light-color);
+}
+
+.eventdetails  a  {
+  text-decoration:none;
+  color: var(--theme-main-very-light-color);
+}
+
+
+.article img {
+  clear:both;
+  padding-left:1em;
+  padding-right:1em;
+  display:block;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 90%;
+  margin: auto auto;
+}
+
+.article .readmore {
+  text-align:end;
+  margin-inline-end:15%;
+}
+
+.disclaimer {
+  width:60%;
+  text-align:center;
+  border:1px solid var(--theme-main-very-dark-color);
+  margin: 1em auto;
+}
+#skip-link {
+  position: absolute;
+  top: -30px;
+}
+
+#skip-link:focus-visible {
+  top: 5px;
+}
+
+
+.responsive-object {
+    position: relative;
+}
+
