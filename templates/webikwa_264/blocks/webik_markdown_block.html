@@ -1,0 +1,10 @@
+{% load wagtailimages_tags %}
+{% load wagtailmarkdown %}
+
+{% if self.applyclass or self.applystyle %}
+<div{% if self.applyclass %} class="{{ self.applyclass }}"{% endif %}{% if self.applystyle %} style="{{ self.applystyle }}"{% endif %}> 
+  {{ self.markdown|markdown }}
+</div>
+{% else %}
+  {{ self.markdown|markdown }}
+{% endif %}

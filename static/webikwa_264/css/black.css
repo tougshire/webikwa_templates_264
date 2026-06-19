@@ -1,10 +1,14 @@
 :root {
-    --blue-theme-main-font-color: #333;
-    --theme-headline-font-color: #333;
-    --theme-special-headline-font-color: #000;
-    --theme-dark-line-color: #333;
-    --theme-special-sidebar-link-color: #666;
-    --theme-button-font-color: #333;
-    --theme-menuitem-font-color: #333;
-  }
+
+    --theme-main-font-color: #000;
+    --theme-main-background-color: #eee;
+
+    --theme-main-very-light-color: #eee;
+    --theme-main-light-color: #ccc;
+    --theme-main-medium-color: #777;
+    --theme-main-dark-color: #333;
+    --theme-main-very-dark-color: #111;
+
+}
+
 
