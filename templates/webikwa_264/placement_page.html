@@ -9,11 +9,11 @@
   {% if page.show_pagetitle %}<h2 class="pagetitle">{{ page.title }}</h2>{% endif %}
   <div class="intro">{{ page.intro|richtext }}</div>
     {% for zone in page.page_zones.all %} 
-      {% if zone.article_placements %}
+      {% if zone.get_active_placements.exists %}
       <div class="pagezone_wrapper zone_{{ forloop.counter0 }}">
         {% if zone.title %}<h2 class="page_zone_title">{{ zone.title }}</h2>{% endif %}
         <div class="pagezone" {% if zone.custom_css %} style="{{ zone.custom_css }}"{% endif %}>
-          {% for placement in zone.article_placements.all %}
+          {% for placement in zone.get_active_placements %}
           {% with article_page=placement.article.specific %} 
               {% include "webikwa_264/includes/article_indexentry.html" %}
               {% endwith %}

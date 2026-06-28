@@ -5,11 +5,11 @@
 {% for sidebar in sidebars %}
 {% if sidebar.location == side %}
 {% for zone in sidebar.sidebar_page_zones.all %}
-      {% if zone.article_sidebarplacements %}
+      {% if zone.get_active_placements.exists %}
       <div class="sidebarzone_wrapper side_{{ side }} zone_{{ forloop.counter0 }}">
         {% if zone.title %}<h2 class="sidebar_zone_title">{{ zone.title }}</h2>{% endif %}
         <div class="sidebarpagezone">
-          {% for placement in zone.article_sidebarplacements.all %}
+          {% for placement in zone.get_active_placements %}
               {% with page=placement.article.specific containing_page=page %} 
               {% include "webikwa_264/includes/article_sidebarentry.html" %}
               {% endwith %}

@@ -1,13 +1,13 @@
 :root {
 
-    --theme-main-font-color: #000;
-    --theme-main-background-color: #eee;
+    --theme-main-very-light-color: ##F6E876;
+    --theme-main-light-color: #E69C47;
+    --theme-main-medium-color: #982825;
+    --theme-main-dark-color: #340D08;
+    --theme-main-very-dark-color: #330000;
 
-    --theme-main-very-light-color: #eee;
-    --theme-main-light-color: #ccc;
-    --theme-main-medium-color: #777;
-    --theme-main-dark-color: #333;
-    --theme-main-very-dark-color: #111;
+    --theme-main-font-color: var(--theme-very-dark-color);
+    --theme-main-background-color: var(--theme-very-light-color);
 
 }
 
