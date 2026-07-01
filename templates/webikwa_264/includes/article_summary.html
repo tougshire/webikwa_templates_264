@@ -2,7 +2,7 @@
 {% load wagtailmarkdown %}
   {% if article_page.show_authors or article_page.specific.show_date %}
     <div class="meta">
-      {{ article_page.date }}
+      posted: {{ article_page.date }}
       {% if article_page.show_authors %}
         {% with authors=article_page.authors.all %}
           {% if authors %}
