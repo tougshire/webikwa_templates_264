@@ -9,6 +9,7 @@
   {% include "webikwa_264/includes/article_body.html" %}
   {% endwith %}
 </div>
+{% comment %}
 <div id="socialshare_reveal">
   <a id="socialshare_reveal_a" href="#">share ...</a>
 </div>
@@ -20,7 +21,7 @@
       </a>
     </div>
     <div id="socialshare_facebook" class="socialshare_service">
-      <a href="https://www.facebook.com/sharer.php?u={{ page.full_url }}" target="_blank" rel="nofollow">
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.full_url }}" target="_blank" rel="nofollow">
         <img class="socialshare_icon" src="{% static "webikwa_264/assets/Facebook_Logo_Primary.png" %}" alt="Facebook logo">
       </a>
     </div>
@@ -46,4 +47,5 @@
       </script>
   </div>
 </div>
+  {% endcomment %}
 {% endblock %}
