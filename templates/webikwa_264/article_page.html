@@ -41,7 +41,7 @@
       })
       document.getElementById("socialshare_copyurl").addEventListener("click", function(e) {
         e.preventDefault()
-        navigator.clipboard.write(e.target.dataset.url)
+        navigator.clipboard.writeText(e.target.dataset.url)
       })
       </script>
   </div>
