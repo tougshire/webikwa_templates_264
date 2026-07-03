@@ -61,3 +61,12 @@
 .pagezone .article:last-child {
   padding-inline-end: auto;
 }
+
+#socialshare_reveal {
+  margin-inline-start:80%;
+}
+
+#socialshare {
+  margin-inline-start:80%;
+  display:none;
+}
