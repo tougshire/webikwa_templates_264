@@ -131,6 +131,27 @@
   text-align:end;
   margin-inline-end:15%;
 }
+#socialshare_reveal {
+  margin-inline-start:40%;
+}
+#socialshare {
+  margin-inline-start:40%;
+  display:none;
+}
+
+#socialshare_links {
+  display:flex;
+}
+
+#socialshare_links > div {
+ flex: 1 1 0;
+ width:0;
+}
+
+.socialshare_icon {
+  height:1em;
+  margin:.5em;
+}
 
 .disclaimer {
   width:60%;
@@ -138,6 +159,7 @@
   border:1px solid var(--theme-main-very-dark-color);
   margin: 1em auto;
 }
+
 #skip-link {
   position: absolute;
   top: -30px;

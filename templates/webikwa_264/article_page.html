@@ -9,4 +9,41 @@
   {% include "webikwa_264/includes/article_body.html" %}
   {% endwith %}
 </div>
+<div id="socialshare_reveal">
+  <a id="socialshare_reveal_a" href="#">share ...</a>
+</div>
+<div id="socialshare">
+  <div id="socialshare_links">
+    <div id="socialshare_bluesky" class="socialshare_serviceervice">
+      <a href="https://bsky.app/intent/compose?text={{ page.full_url }}" target="_blank" rel="nofollow">
+        <img class="socialshare_icon" src="{% static "webikwa_264/assets/bsky_logo.png" %}" alt="bluesky logo">
+      </a>
+    </div>
+    <div id="socialshare_facebook" class="socialshare_service">
+      <a href="https://www.facebook.com/sharer.php?u={{ page.full_url }}" target="_blank" rel="nofollow">
+        <img class="socialshare_icon" src="{% static "webikwa_264/assets/Facebook_Logo_Primary.png" %}" alt="Facebook logo">
+      </a>
+    </div>
+    <div id="socialshare_threads">
+      <a href="https://www.threads.net/share?text={{ page.title }}&amp;url={{ page.full_url }}" target="_blank" rel="nofollow" class="ak-share-button threads">
+        <img class="socialshare_icon" src="{% static "webikwa_264/assets/threads-logo-black.png" %}" alt="Threads logo">
+      </a>
+    </div>
+  </div>
+  <div>Share on most social media platforms by 
+    <a id="socialshare_copyurl" href="#" data-url="{{ page.full_url }}">copying the url</a> 
+    of this article and pasting it to the editing window of your social media platform</a>
+    <script>
+      document.getElementById("socialshare_reveal_a").addEventListener("click", function(e) {
+        e.preventDefault()
+        let socialshare = document.getElementById("socialshare")
+        socialshare.style.display = socialshare.style.display == "block" ? "none" : "block"
+      })
+      document.getElementById("socialshare_copyurl").addEventListener("click", function(e) {
+        e.preventDefault()
+        navigator.clipboard.write(e.target.dataset.url)
+      })
+      </script>
+  </div>
+</div>
 {% endblock %}
