@@ -1,7 +1,9 @@
 {% extends "webikwa_264/base/base.html" %}
 {% load static %}
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags wagtailimages_tags wagtailsettings_tags %}
 {% load wagtailmarkdown %}
+{% get_settings %}
+
 {% block content %}
 <div class="article">
   <h3 class="title"><a href="{% pageurl page %}">{{ page.title }}</a></h3>
@@ -9,6 +11,8 @@
   {% include "webikwa_264/includes/article_body.html" %}
   {% endwith %}
 </div>
+
+{% if settings.webikwa_264.SiteTemplateSettings.show_article_socialshare %}
 <div id="socialshare_reveal">
   <a id="socialshare_reveal_a" href="#">share ...</a>
 </div>
@@ -45,5 +49,6 @@
       })
       </script>
   </div>
+  {% endif %}
 </div>
 {% endblock %}
