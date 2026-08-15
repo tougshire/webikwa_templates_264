@@ -1,2 +1,3 @@
-@import "webikwa_264_mainmobile.css?cssver=va73g04";
-@import "webikwa_264_min600.css?cssver=va73g04" screen and (min-width: 600px);
+@import "webikwa_264_naro.css?cssver=va75701";
+@import "webikwa_264_medi.css?cssver=va75701" screen and (min-width: 500px);
+@import "webikwa_264_wide.css?cssver=va75701" screen and (min-width: 800px);
