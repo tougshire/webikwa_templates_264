@@ -36,7 +36,6 @@
 
 
         {% get_template_settings as template_settings %}
-	{{ template_settings.extra_head_content|safe }}
         <!-- link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍩</text></svg>"/ -->
         {% with favicon=template_settings.favicon %}
           {% if favicon|slice:7 == "static:" %}
@@ -64,6 +63,7 @@
     </head>
 
     <body class="{% block body_class %}template-{{ self.get_verbose_name|slugify }}{% endblock %}">
+	{{ template_settings.top_content|safe }}
         {% block header %}
             {% include "webikwa_264/includes/header.html" with image=page.gallery_images.first %}
 	    {{ template_settings.extra_header_content|safe }}
