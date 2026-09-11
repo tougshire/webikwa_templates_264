@@ -24,15 +24,17 @@
         <meta property="og:title" content="{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}{% wagtail_site as current_site %}{% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}" />
         <meta property="og:url" content="{{ og_url }}{{ page.url }}" />
         <meta property="og:description" content="{{ page.summary }}" />
+	<!-- image -->
         {% if page.featured_image %}
             {% image page.featured_image.image width-800 as featured_image %}
             <meta property="og:image" content="{{ og_url }}{{ featured_image.url }}" />
             <meta property="og:image:alt" content="{{page.featured_image.alt_text  }}" />
 	{% elif template_settings.default_featured_image %}
-            {% image template_settings.default_article_image width-800 as featured_image %}
+            {% image template_settings.default_featured_image width-800 as featured_image %}
             <meta property="og:image" content="{{ og_url }}{{ featured_image.url }}" />
             <meta property="og:image:alt" content="{{ template_settings.default_featured_image.alt_text  }}" />
         {% endif %}
+	<!-- end image -->
 
         {# Force all links in the live preview panel to be opened in a new tab #}
         {% if request.in_preview_panel %}
