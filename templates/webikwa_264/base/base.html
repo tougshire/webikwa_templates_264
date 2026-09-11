@@ -1,9 +1,9 @@
 {% load static template_settings wagtailcore_tags wagtailimages_tags %}
 <!DOCTYPE html>
 {% if page %}
+{% get_template_settings as template_settings %}
 <html lang="en">
     <head>
-	    <!-- {{ page.slug }} -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>
@@ -28,6 +28,10 @@
             {% image page.featured_image.image width-800 as featured_image %}
             <meta property="og:image" content="{{ og_url }}{{ featured_image.url }}" />
             <meta property="og:image:alt" content="{{page.featured_image.alt_text  }}" />
+	{% elif template_settings.default_featured_image %}
+            {% image template_settings.default_article_image width-800 as featured_image %}
+            <meta property="og:image" content="{{ og_url }}{{ featured_image.url }}" />
+            <meta property="og:image:alt" content="{{ template_settings.default_featured_image.alt_text  }}" />
         {% endif %}
 
         {# Force all links in the live preview panel to be opened in a new tab #}
@@ -36,7 +40,6 @@
         {% endif %}
 
 
-        {% get_template_settings as template_settings %}
         <!-- link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍩</text></svg>"/ -->
         {% with favicon=template_settings.favicon %}
           {% if favicon|slice:7 == "static:" %}
