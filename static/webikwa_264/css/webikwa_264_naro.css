@@ -9,6 +9,13 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.menuiteml1 {
+  text-align:center;
+  font-size:1em;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .menuitem a, .menuitem a:hover {
   text-decoration: none;
   color: var(--theme-button-font-color  )

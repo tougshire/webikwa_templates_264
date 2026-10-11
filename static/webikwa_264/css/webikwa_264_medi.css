@@ -8,6 +8,28 @@
 
 } 
 
+.leftsidebar .menuitem  {
+	text-align:left;
+	margin-top:1.5em;
+}
+
+.rightsidebar .menuitem {
+	text-align:right;
+	margin-top:1.5em;
+}
+
+.leftsidebar .menuiteml1 {
+	text-align:left;
+	margin-left:1em;
+	margin-top:1.5em;
+}
+
+.rightsidebar .menuiteml1 {
+	text-align:right;
+	margin-right:1em;;
+	margin-top:1.5em;
+}
+
 .menuitem {
   flex:1 0 auto;
 }
