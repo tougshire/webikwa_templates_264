@@ -6,6 +6,33 @@
 {% block body_class %}template-articleindexpage{% endblock %}
 
 {% block content %}
+
+{% for zone in page_zones %}
+{{ zone.placemnets }}
+{% endfor %}
+
+  {% if page.show_pagetitle %}<h2 class="pagetitle">{{ page.title }}</h2>{% endif %}
+  <div class="intro">{{ page.intro|richtext }}</div>
+    {% for zone in zones %} 
+      {% if zone.placements %}
+      <div class="pagezone_wrapper zone_{{ forloop.counter0 }}">
+        {% if zone.title %}<h2 class="page_zone_title">{{ zone.title }}</h2>{% endif %}
+        <div class="pagezone" {% if zone.custom_css %} style="{{ zone.custom_css }}"{% endif %}>
+          {% for placement in zone.placements %}
+          {% with article_page=placement.article.specific %} 
+              {% include "webikwa_264/includes/article_indexentry.html" %}
+              {% endwith %}
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endblock %}
+
+
+
+{% block zz_content %}
   {% if page.show_pagetitle %}<h2 class="pagetitle">{{ page.title }}</h2>{% endif %}
   <div class="intro">{{ page.intro|richtext }}</div>
     {% for zone in page.page_zones.all %} 
