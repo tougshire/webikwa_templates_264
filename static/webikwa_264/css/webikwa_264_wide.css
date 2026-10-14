@@ -26,4 +26,47 @@
 	margin-right:1em;;
 }
 
+.sideright {
+  float: right;
+  margin-left: 2rem;   
+  margin-bottom: 2ex; 
+}
 
+.sideleft {
+  float: left;
+  margin-left: 2rem;   
+  margin-bottom: 2ex; 
+}
+
+.sidecenter {
+  float:none;
+  text-alignt: center
+}
+
+.widthverysmall {
+  width:10%;
+}
+
+.widthsmall {
+  width:20%;
+}
+
+.widthmediumsmall {
+  width:30%;
+}
+
+.widthmedium {
+  width:50%;
+}
+
+.widthmediumlarge {
+  width:70%;
+}
+
+.widthlarge {
+  width:850%;
+}
+
+.widthverylarge {
+  width:100%;
+}
