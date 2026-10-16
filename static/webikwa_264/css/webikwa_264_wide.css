@@ -26,19 +26,19 @@
 	margin-right:1em;;
 }
 
-.sideright {
+.alignright {
   float: right;
   margin-left: 2rem;   
   margin-bottom: 2ex; 
 }
 
-.sideleft {
+.alignleft {
   float: left;
   margin-left: 2rem;   
   margin-bottom: 2ex; 
 }
 
-.sidecenter {
+.aligncenter {
   float:none;
   text-alignt: center
 }
