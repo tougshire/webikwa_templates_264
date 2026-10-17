@@ -2,11 +2,11 @@
 {% if self.is_figure %}
 <figure>
   {% if self.link %}
-  <a href="{{ self.link }}">
-    <img src="{{ src }}" alt="{{ alt_escaped }}" class="{{ self.width }} {{ self.alignment }}">
-  </a>
+    <a href="{{ self.link }}">
+      <img src="{{ src }}" alt="{{ alt_escaped }}" class="{{ self.width }} {{ self.alignment }}">
+    </a>
   {% else %}
-  <img src="{{ src }}" alt="{{ alt_escaped }}" class="{{ self.width }} {{ self.alignment }}">
+      <img src="{{ src }}" alt="{{ alt_escaped }}" class="{{ self.width }} {{ self.alignment }} unlinked_image">
   {% endif %}
   {% if self.caption%}
     <figcaption>{{ self.caption }}</figcaption>

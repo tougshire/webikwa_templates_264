@@ -53,4 +53,17 @@
   </div>
   {% endif %}
 </div>
+  <script>
+    var unlinked_images = document.querySelectorAll('.block-image_block img:not(a *)');
+    for( img of unlinked_images ) {
+      img.addEventListener("click", function(e) {
+        e.preventDefault()
+        window.open(
+          e.target.src, 
+          '_blank', 
+          'width=800,height=600,top=100,left=100'
+        );
+      })
+    }
+  </script>
 {% endblock %}
