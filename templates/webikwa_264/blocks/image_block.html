@@ -1,24 +1,24 @@
 {% load static wagtailimages_tags %}
 {% if self.is_figure == "yes" %}
-<figure>
+  <figure>
+    {% if self.link %}
+      <a href="{{ self.link }}">
+        <img src="{{ src }}" alt="{{ alt_escaped }}" class="{{ self.width }} {{ self.alignment }}">
+      </a>
+    {% else %}
+      <img src="{{ src }}" alt="{{ alt_escaped }}" data-original="{{ self.image.file.url }}" class="{{ self.width }} {{ self.alignment }} unlinked_image">
+    {% endif %}
+    {% if self.caption%}
+      <figcaption>{{ self.caption }}</figcaption>
+    {% endif %}
+  </figure>
+{% else %}
   {% if self.link %}
     <a href="{{ self.link }}">
       <img src="{{ src }}" alt="{{ alt_escaped }}" class="{{ self.width }} {{ self.alignment }}">
     </a>
   {% else %}
-  <img src="{{ src }}" alt="{{ alt_escaped }}" data-original="{{ self.image.file.url }}" class="{{ self.width }} {{ self.alignment }} unlinked_image">
-  {% endif %}
-  {% if self.caption%}
-    <figcaption>{{ self.caption }}</figcaption>
-  {% endif %}
-</figure>
-{% else %}
-  {% if self.link %}
-  <a href="{{ self.link }}">
-    <img src="{{ src }}" alt="{{ alt_escaped }}" class="{{ self.width }} {{ self.alignment }}">
-  </a>
-  {% else %}
-  <img src="{{ src }}" alt="{{ alt_escaped }}" class="{{ self.width }} {{ self.alignment }}">
+  <img src="{{ src }}" alt="{{ alt_escaped }}" data-original="{{ self.image.file.url }}" class="{{ self.width }} {{ self.alignment }}">
   {% endif %}
 {% endif %}
 {% if self.attribution %}

@@ -25,13 +25,16 @@
   {% endif %}
 {% endfor %}
 
-{% comment %}{% include_block article_page.body %}{% endcomment %}
+<div class="blockgroup">
+{% include_block article_page.body %}
+</div>
+{% comment %}
 <div class="blockgroup">
 {% for block in page.body %}
     {% include_block block %}
 {% endfor %}
 </div>
-
+{% endcomment %}
 {% for article_image in article_page.article_images.all %}
   {% if article_image.display_after_body %}
     {% image article_image.image width-800 as article_image_image %}
