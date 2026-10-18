@@ -93,6 +93,11 @@
   display:none;
 }
 
+.blockgroup {
+  clear:both; 
+  margin-bottom:1em;
+  overflow: hidden;
+}
 
 .alignright {
   float: right;

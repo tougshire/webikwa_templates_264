@@ -25,7 +25,12 @@
   {% endif %}
 {% endfor %}
 
-{% include_block article_page.body %}
+{% comment %}{% include_block article_page.body %}{% endcomment %}
+<div class="blockgroup">
+{% for block in page.body %}
+    {% include_block block %}
+{% endfor %}
+</div>
 
 {% for article_image in article_page.article_images.all %}
   {% if article_image.display_after_body %}

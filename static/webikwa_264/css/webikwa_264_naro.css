@@ -110,6 +110,10 @@
   color: white;
 }
 
+.blockgroup {
+  clear:both; 
+}
+
 
 .eventdetails {
   background-color: black;
