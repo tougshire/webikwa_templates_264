@@ -3,10 +3,10 @@
 <figure>
   {% if self.link %}
   <a href="{{ self.link }}">
-    <img src="src" alt="{{ alt_escaped }}" class="{{ self.width }} {{ self.alignment }}">
+    <img src="{{ self.url }}" alt="{{ alt_escaped }}" >
   </a>
   {% else %}
-    <img src="src" alt="{{ alt_escaped }}" class="{{ self.width }} {{ self.alignment }}">
+    <img src="{{ self.url }}" alt="{{ alt_escaped }}" >
   {% endif %}
   {% if self.caption%}
     <figcaption>{{ self.caption }}</figcaption>
@@ -15,10 +15,10 @@
 {% else %}
   {% if self.link %}
   <a href="{{ self.link }}">
-    <img src="src" alt="{{ alt_escaped }}" class="{{ self.width }} {{ self.alignment }}">
+    <img src="{{ self.url }}" alt="{{ alt_escaped }}" >
   </a>
   {% else %}
-    <img src="src" alt="{{ alt_escaped }}" class="{{ self.width }} {{ self.alignment }}">
+    <img src="{{ self.url }}" alt="{{ alt_escaped }}" >
   {% endif %}
 {% endif %}
 {% if self.attribution %}

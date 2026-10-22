@@ -1,0 +1,34 @@
+{% load static wagtailimages_tags %}
+{% load wagtailmarkdown %}
+<section class="illustrated-block image-{{ self.image_side }} {{ self.colprops }}">
+  {% if self.image_side == "right" %}
+    <div class="markdown">
+      {{ self.markdown|markdown }}
+    </div>
+    <div>
+      {% if self.is_figure %}
+        <figure class="figure">
+          {% srcset_image self.image width-{400,800,1200} sizes="(min-width: 48rem) min(24rem, 40vw), 100vw" alt=alt_escaped loading="lazy" %}
+
+            <figcaption>{{ self.image_caption }}</figcaption>
+        </figure>
+      {% else %}
+        {% srcset_image self.image width-{400,800,1200} sizes="(min-width: 48rem) min(24rem, 40vw), 100vw" alt=alt_escaped loading="lazy" %}
+      {% endif %}
+    </div>
+  {% else %}
+    <div>
+      {% if self.is_figure %}
+        <figure class="figure">
+          <img src="{{ src }}" alt="{{ alt_escaped }}" data-original="{{ self.image.file.url }}" class="{{ self.width }} {{ self.alignment }} unlinked_image">
+          <figcaption>{{ self.image_caption }}</figcaption>
+        </figure>
+      {% else %}
+          <img src="{{ src }}" alt="{{ alt_escaped }}" data-original="{{ self.image.file.url }}" class="{{ self.width }} {{ self.alignment }} unlinked_image">
+      {% endif %}
+    </div>
+    <div class="markdown">
+      {{ self.markdown|markdown }}
+    </div>
+  {% endif %}
+</section>

@@ -185,3 +185,16 @@
     position: relative;
 }
 
+section.illustrated-block {
+  display: grid;
+  align-items: start;
+  grid-template-columns: 1fr;
+  gap: 1rem 2rem;
+  margin-bottom: 2.5rem;
+}
+
+section.illustrated-block img {
+  max-width: 100%;
+  height: auto;
+}
+
