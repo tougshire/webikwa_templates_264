@@ -58,7 +58,7 @@
   {% endif %}
 </div>
   <script>
-    var unlinked_images = document.querySelectorAll('.block-image_block img:not(a *)');
+    var unlinked_images = document.querySelectorAll('.block-image_block img:not(a *), .block-illustrated_block img:not(a *)');
     for( img of unlinked_images ) {
       img.addEventListener("click", function(e) {
         e.preventDefault()

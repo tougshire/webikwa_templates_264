@@ -1,5 +1,8 @@
 {% load static wagtailimages_tags %}
 {% load wagtailmarkdown %}
+
+{% srcset_image self.image width-{400,800,1200} as self_image %}
+
 <section class="illustrated-block image-{{ self.image_side }} {{ self.colprops }}">
   {% if self.image_side == "right" %}
     <div class="markdown">
@@ -7,25 +10,48 @@
     </div>
     <div>
       {% if self.image_is_figure == "yes" %}
-        <figure class="figure">
-          {% srcset_image self.image width-{400,800,1200} sizes="(min-width: 48rem) min(24rem, 40vw), 100vw" alt=alt_escaped loading="lazy" %}
+      <figure class="figure">
+        <img
+            src="{{ self_image.renditions.0.url }}"
+            alt="{{ alt_escaped }}"
+            srcset="{{ self_image.renditions.0.url }} 400w, {{ self_image.renditions.1.url }} 600w, {{ self_image.renditions.2.url }} 1200w"
+            sizes="100vw"
+            class="my-custom-class"
+          />
 
-            <figcaption>{{ self.figure_caption }}</figcaption>
+        <figcaption>{{ self.figure_caption }}</figcaption>
         </figure>
       {% else %}
-        {% srcset_image self.image width-{400,800,1200} sizes="(min-width: 48rem) min(24rem, 40vw), 100vw" alt=alt_escaped loading="lazy" %}
+        <img
+            src="{{ self_image.renditions.0.url }}"
+            alt="{{ alt_escaped }}"
+            srcset="{{ self_image.renditions.0.url }} 400w, {{ self_image.renditions.1.url }} 600w, {{ self_image.renditions.2.url }} 1200w"
+            sizes="100vw"
+            class="my-custom-class"
+          />
       {% endif %}
     </div>
   {% else %}
     <div>
       {% if self.image_is_figure == "yes" %}
         <figure class="figure">
-          {% srcset_image self.image width-{400,800,1200} sizes="(min-width: 48rem) min(24rem, 40vw), 100vw" alt=alt_escaped loading="lazy" %}
-
+        <img
+            src="{{ self_image.renditions.0.url }}"
+            alt="{{ alt_escaped }}"
+            srcset="{{ self_image.renditions.0.url }} 400w, {{ self_image.renditions.1.url }} 600w, {{ self_image.renditions.2.url }} 1200w"
+            sizes="100vw"
+            class="my-custom-class"
+          />
             <figcaption>{{ self.figure_caption }}</figcaption>
         </figure>
       {% else %}
-        {% srcset_image self.image width-{400,800,1200} sizes="(min-width: 48rem) min(24rem, 40vw), 100vw" alt=alt_escaped loading="lazy" %}
+        <img
+            src="{{ self_image.renditions.0.url }}"
+            alt="{{ alt_escaped }}"
+            srcset="{{ self_image.renditions.0.url }} 400w, {{ self_image.renditions.1.url }} 600w, {{ self_image.renditions.2.url }} 1200w"
+            sizes="100vw"
+            class="my-custom-class"
+          />
       {% endif %}
     </div>
     <div class="markdown">
