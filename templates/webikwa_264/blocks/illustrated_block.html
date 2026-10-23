@@ -6,11 +6,11 @@
       {{ self.markdown|markdown }}
     </div>
     <div>
-      {% if self.is_figure %}
+      {% if self.image_is_figure == "yes" %}
         <figure class="figure">
           {% srcset_image self.image width-{400,800,1200} sizes="(min-width: 48rem) min(24rem, 40vw), 100vw" alt=alt_escaped loading="lazy" %}
 
-            <figcaption>{{ self.image_caption }}</figcaption>
+            <figcaption>{{ self.figure_caption }}</figcaption>
         </figure>
       {% else %}
         {% srcset_image self.image width-{400,800,1200} sizes="(min-width: 48rem) min(24rem, 40vw), 100vw" alt=alt_escaped loading="lazy" %}
@@ -18,13 +18,14 @@
     </div>
   {% else %}
     <div>
-      {% if self.is_figure %}
+      {% if self.image_is_figure == "yes" %}
         <figure class="figure">
-          <img src="{{ src }}" alt="{{ alt_escaped }}" data-original="{{ self.image.file.url }}" class="{{ self.width }} {{ self.alignment }} unlinked_image">
-          <figcaption>{{ self.image_caption }}</figcaption>
+          {% srcset_image self.image width-{400,800,1200} sizes="(min-width: 48rem) min(24rem, 40vw), 100vw" alt=alt_escaped loading="lazy" %}
+
+            <figcaption>{{ self.figure_caption }}</figcaption>
         </figure>
       {% else %}
-          <img src="{{ src }}" alt="{{ alt_escaped }}" data-original="{{ self.image.file.url }}" class="{{ self.width }} {{ self.alignment }} unlinked_image">
+        {% srcset_image self.image width-{400,800,1200} sizes="(min-width: 48rem) min(24rem, 40vw), 100vw" alt=alt_escaped loading="lazy" %}
       {% endif %}
     </div>
     <div class="markdown">

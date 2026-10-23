@@ -59,6 +59,7 @@
   margin-inline-start:0;
   padding-inline-start:0;
 }
+
 .sidebar div > ul ul {
   margin-inline-start:0;
   padding-inline-start:20px;
@@ -128,23 +129,24 @@
 
 
 .article img {
-  clear:both;
   padding-left:1em;
   padding-right:1em;
   display:block;
-  margin: 0 auto;
   text-align: center;
   max-width: 90%;
   margin: auto auto;
+	height: auto;
 }
 
 .article .readmore {
   text-align:end;
   margin-inline-end:15%;
 }
+
 #socialshare_reveal {
   margin-inline-start:50%;
 }
+
 #socialshare {
   margin-inline-start:50%;
   display:none;
@@ -192,9 +194,14 @@ section.illustrated-block {
   gap: 1rem 2rem;
   margin-bottom: 2.5rem;
 }
-
-section.illustrated-block img {
-  max-width: 100%;
-  height: auto;
+section.illustrated-block figure {
+	margin-inline-start:10px;
+	margin-inline-end:10px;
 }
+
+figcaption {
+	text-align:center;
+}
+
+
 
