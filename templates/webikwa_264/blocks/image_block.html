@@ -1,24 +1,49 @@
 {% load wagtailimages_tags %}
+{% srcset_image self.image width-{400,800,1200} as self_image %}
 {% if self.is_figure == "yes" %}
-<figure>
-  {% if self.link %}
-  <a href="{{ self.link }}">
-    {% srcset_image self.image width-{400,800,1200} sizes="(min-width: 48rem) min(24rem, 40vw), 100vw" alt=alt_escaped %}
-  </a>
-  {% else %}
-    {% srcset_image self.image width-{400,800,1200} sizes="(min-width: 48rem) min(24rem, 40vw), 100vw" alt=alt_escaped %}
-  {% endif %}
-  {% if self.caption%}
-    <figcaption>{{ self.caption }}</figcaption>
-  {% endif %}
-</figure>
+  <figure>
+    {% if self.link %}
+      <a href="{{ self.link }}">
+          <img
+              src="{{ self_image.renditions.0.url }}"
+              alt="{{ alt_escaped }}"
+              srcset="{{ self_image.renditions.0.url }} 400w, {{ self_image.renditions.1.url }} 800w, {{ self_image.renditions.2.url }} 1200w"
+              sizes="100vw"
+              class="my-custom-class"
+            />
+      </a>
+    {% else %}
+        <img
+            src="{{ self_image.renditions.0.url }}"
+            alt="{{ alt_escaped }}"
+            srcset="{{ self_image.renditions.0.url }} 400w, {{ self_image.renditions.1.url }} 800w, {{ self_image.renditions.2.url }} 1200w"
+            sizes="100vw"
+            class="my-custom-class"
+          />
+    {% endif %}
+    {% if self.caption%}
+      <figcaption>{{ self.caption }}</figcaption>
+    {% endif %}
+  </figure>
 {% else %}
   {% if self.link %}
-  <a href="{{ self.link }}">
-    {% srcset_image self.image width-{400,800,1200} sizes="(min-width: 48rem) min(24rem, 40vw), 100vw" alt=alt_escaped %}
-  </a>
+    <a href="{{ self.link }}">
+      <img
+          src="{{ self_image.renditions.0.url }}"
+          alt="{{ alt_escaped }}"
+          srcset="{{ self_image.renditions.0.url }} 400w, {{ self_image.renditions.1.url }} 800w, {{ self_image.renditions.2.url }} 1200w"
+          sizes="100vw"
+          class="my-custom-class"
+        />
+    </a>
   {% else %}
-    {% srcset_image self.image width-{400,800,1200} sizes="(min-width: 48rem) min(24rem, 40vw), 100vw" alt=alt_escaped %}
+    <img
+        src="{{ self_image.renditions.0.url }}"
+        alt="{{ alt_escaped }}"
+        srcset="{{ self_image.renditions.0.url }} 400w, {{ self_image.renditions.1.url }} 800w, {{ self_image.renditions.2.url }} 1200w"
+        sizes="100vw"
+        class="my-custom-class"
+      />
   {% endif %}
 {% endif %}
 {% if self.attribution %}

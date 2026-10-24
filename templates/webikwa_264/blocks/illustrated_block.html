@@ -10,16 +10,16 @@
     </div>
     <div>
       {% if self.image_is_figure == "yes" %}
-      <figure class="figure">
-        <img
-            src="{{ self_image.renditions.0.url }}"
-            alt="{{ alt_escaped }}"
-            srcset="{{ self_image.renditions.0.url }} 400w, {{ self_image.renditions.1.url }} 600w, {{ self_image.renditions.2.url }} 1200w"
-            sizes="100vw"
-            class="my-custom-class"
-          />
+        <figure class="figure">
+          <img
+              src="{{ self_image.renditions.0.url }}"
+              alt="{{ alt_escaped }}"
+              srcset="{{ self_image.renditions.0.url }} 400w, {{ self_image.renditions.1.url }} 600w, {{ self_image.renditions.2.url }} 1200w"
+              sizes="100vw"
+              class="my-custom-class"
+            />
 
-        <figcaption>{{ self.figure_caption }}</figcaption>
+          <figcaption>{{ self.figure_caption }}</figcaption>
         </figure>
       {% else %}
         <img
@@ -35,13 +35,13 @@
     <div>
       {% if self.image_is_figure == "yes" %}
         <figure class="figure">
-        <img
-            src="{{ self_image.renditions.0.url }}"
-            alt="{{ alt_escaped }}"
-            srcset="{{ self_image.renditions.0.url }} 400w, {{ self_image.renditions.1.url }} 600w, {{ self_image.renditions.2.url }} 1200w"
-            sizes="100vw"
-            class="my-custom-class"
-          />
+          <img
+              src="{{ self_image.renditions.0.url }}"
+              alt="{{ alt_escaped }}"
+              srcset="{{ self_image.renditions.0.url }} 400w, {{ self_image.renditions.1.url }} 600w, {{ self_image.renditions.2.url }} 1200w"
+              sizes="100vw"
+              class="my-custom-class"
+            />
             <figcaption>{{ self.figure_caption }}</figcaption>
         </figure>
       {% else %}

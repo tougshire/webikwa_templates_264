@@ -1,22 +1,22 @@
 {% load wagtailimages_tags %}
 {% if self.is_figure == "yes" %}
-<figure>
-  {% if self.link %}
-  <a href="{{ self.link }}">
-    <img src="{{ self.url }}" alt="{{ alt_escaped }}" >
-  </a>
-  {% else %}
-    <img src="{{ self.url }}" alt="{{ alt_escaped }}" >
-  {% endif %}
-  {% if self.caption%}
-    <figcaption>{{ self.caption }}</figcaption>
-  {% endif %}
-</figure>
+  <figure>
+    {% if self.link %}
+    <a href="{{ self.link }}">
+      <img src="{{ self.url }}" alt="{{ alt_escaped }}" >
+    </a>
+    {% else %}
+      <img src="{{ self.url }}" alt="{{ alt_escaped }}" >
+    {% endif %}
+    {% if self.caption%}
+      <figcaption>{{ self.caption }}</figcaption>
+    {% endif %}
+  </figure>
 {% else %}
   {% if self.link %}
-  <a href="{{ self.link }}">
-    <img src="{{ self.url }}" alt="{{ alt_escaped }}" >
-  </a>
+    <a href="{{ self.link }}">
+      <img src="{{ self.url }}" alt="{{ alt_escaped }}" >
+    </a>
   {% else %}
     <img src="{{ self.url }}" alt="{{ alt_escaped }}" >
   {% endif %}
