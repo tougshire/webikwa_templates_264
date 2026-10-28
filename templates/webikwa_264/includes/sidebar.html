@@ -5,7 +5,7 @@
 {% for sidebar in sidebars %}
 {% if sidebar.location == side %}
     {% for placement in sidebar.articlesidebar_placements.all %}
-        {% with page=placement.article.specific containing_page=page %} 
+        {% with page=placement.article.specific containing_page=page show_title=placement.show_title %} 
         {% include "webikwa_264/includes/article_sidebarentry.html" %}
         {% endwith %}
     {% endfor %}
