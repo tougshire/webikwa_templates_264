@@ -1,5 +1,6 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 {% load wagtailmarkdown %}
+->> {{ placement }} <<-
   {% if article_page.show_authors or article_page.specific.show_date %}
     <div class="meta">
       posted: {{ article_page.date }}
@@ -18,9 +19,22 @@
 
   {% for article_image in article_page.article_images.all %}
     {% if article_image.display_with_summary %}
-      {% image article_image.image width-800 as article_image_image %}
+      {% if placement.nocrop_summary %}
+        {% image article_image.image width-1600 as article_image_w %}
+        {% image article_image.image width-1200 as article_image_m %}
+        {% image article_image.image width-600 as article_image_n %}
+      {% else %}
+        {% image article_image.image fill-1600x900  as article_image_w %}
+        {% image article_image.image fill-1200x675  as article_image_m %}
+        {% image article_image.image fill-600x338  as article_image_n %}
+      {% endif %}
       <div class="articleimage">
-        <a href="{% pageurl article_page %}"><img src="{{ article_image_image.url }}" width="80%" alt="{{ article_image.alt_text }}"></a>
+        <a href="{% pageurl article_page %}">
+          <picture>
+            <source media="(min-width: 1200px)" srcset="{{ article_image_w.url }}">
+            <source media="(min-width: 600px)" srcset="{{ article_image_m.url }}">
+            <img src="{{ article_image_n.url }}"  width="{{ article_image_n.width }}" height="{{ article_image_n.height }}" alt="{{ article_image.alt_text }}">
+        </a>
       </div>
     {% endif %}
   {% endfor %}
