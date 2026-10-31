@@ -26,7 +26,30 @@
   {% endfor %}
 
   {{ article_page.summary|markdown  }}
-  <div class="readmore"><a href="{% pageurl article_page %}">{{ page.continue_label }}{{ object.continue_label }}</a></div>
+  <div class="readmore">
+
+
+    {% with restrictions=article_page.get_view_restrictions %}
+        {% if restrictions %}
+            <div class="restriction_info">
+                {% for restriction in restrictions %}
+                    {% if restriction.restriction_type == 'login' %}
+                        This article is restricted to authenticated users.
+                    {% elif restriction.restriction_type == 'password' %}
+                        This article is password protected.
+                    {% elif restriction.restriction_type == 'groups' %}
+                        This article is aailable to: {{ restriction.groups.all|join:", " }}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <div class="readmore_link">
+      <a href="{% pageurl article_page %}">
+          {{ page.continue_label }}{{ object.continue_label }}
+      </a>
+    </div>
+  </div>
 
   {% if article_page.show_tags %}
     <div class="tags">
